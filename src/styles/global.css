@@ -9,9 +9,24 @@
     --font-texte: "Roboto", sans-serif;
 
     /* Colors */
-    --color-text-black: #202426;
-    --color-text-gray: #8c8c88;
-    --color-text-white: #f2f2f2;
+    --color-black: #202426;
+    --color-gray: #8c8c88;
+    --color-white: #f2f2f2;
     --color-green-dark: #6c733d;
     --color-green-light: #9da65d;
+}
+
+@layer base {
+    h1 {
+        @apply font-title font-bold text-4xl tracking-widest;
+    }
+    h2 {
+        @apply font-title font-bold text-2xl tracking-wide;
+    } 
+    h3 {
+        @apply font-texte font-medium text-xl;
+    }
+    body {
+        @apply font-texte font-medium text-base;
+    }
 }

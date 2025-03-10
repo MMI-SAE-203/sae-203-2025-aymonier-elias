@@ -1,0 +1,20 @@
+---
+import Logo from "../assets/svg/logo.svg";
+import OpenMenu from "../assets/svg/Open_menu.svg";
+
+import Nav from "../components/Nav.astro"
+---
+
+<header x-data="{ open: false}" class="flex flex-col items-center w-full gap-9 bg-green-dark bg-[url(../assets/img/fond_landing_page.png)] bg-blend-multiply bg-cover pb-28">
+    <div class="flex justify-between px-8 py-5 w-full">
+        <a href="/">
+            <Logo />
+        </a>
+        <button @click="open = true" class="cursor-pointer">
+            <OpenMenu />
+        </button>
+    </div>
+    <h1 class="text-white">Cinémagny</h1>
+
+    <Nav />
+</header>

@@ -1,0 +1,56 @@
+---
+import Buy from "../assets/svg/icons8_buy.svg";
+import CloseMenu from "../assets/svg/Close_menu.svg";
+import Book from "../assets/svg/Vector.svg";
+import Billet from "../assets/svg/billet_blanc.svg";
+import Films from "../assets/svg/films_blanc.svg";
+import Prog from "../assets/svg/clalendar_blanc.svg";
+import Invit from "../assets/svg/profile_blanc.svg";
+import Info from "../assets/svg/about_blanc.svg";
+import Contact from "../assets/svg/mail_blanc.svg";
+---
+
+<nav x-show="open" class="bg-green-dark fixed inset-0">
+    <div class="flex justify-between py-5 px-8">
+        <Buy />
+        <button @click="open = false" class="cursor-pointer">
+            <CloseMenu />
+        </button>
+    </div>
+    <div class="flex flex-col gap-6 py-13 px-8">
+        <div class="flex gap-5 items-center">
+            <Book />
+            <a href="/a_propos" class="text-white uppercase font-bold">À Propos</a>
+        </div>
+        <span class="bg-white w-full h-0.75 relative"></span>
+        <div class="flex gap-5 items-center">
+            <Billet />
+            <a href="/a_propos" class="text-white uppercase font-bold">Billeterie</a>
+        </div>
+        <span class="bg-white w-full h-0.75 relative"></span>
+        <div class="flex gap-5 items-center">
+            <Films />
+            <a href="/a_propos" class="text-white uppercase font-bold">Films</a>
+        </div>
+        <span class="bg-white w-full h-0.75 relative"></span>
+        <div class="flex gap-5 items-center">
+            <Prog />
+            <a href="/a_propos" class="text-white uppercase font-bold">Programmation</a>
+        </div>
+        <span class="bg-white w-full h-0.75 relative"></span>
+        <div class="flex gap-5 items-center">
+            <Invit />
+            <a href="/a_propos" class="text-white uppercase font-bold">Invités</a>
+        </div>
+        <span class="bg-white w-full h-0.75 relative"></span>
+        <div class="flex gap-5 items-center">
+            <Info />
+            <a href="/a_propos" class="text-white uppercase font-bold">Infos pratiques</a>
+        </div>
+        <span class="bg-white w-full h-0.75 relative"></span>
+        <div class="flex gap-5 items-center">
+            <Contact />
+            <a href="/a_propos" class="text-white uppercase font-bold">Contact</a>
+        </div>
+    </div>
+</nav>
