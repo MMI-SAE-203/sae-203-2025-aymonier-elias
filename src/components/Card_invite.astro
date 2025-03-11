@@ -1,0 +1,9 @@
+---
+const {...invite} = Astro.props;
+---
+
+<div class="flex flex-col w-10/21">
+    <img src={invite.img} alt="">
+    <h3>{invite.prenom} {invite.nom}</h3>
+    <p>{invite.metier}</p>
+</div>

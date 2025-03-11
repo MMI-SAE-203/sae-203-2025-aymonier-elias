@@ -1,10 +1,16 @@
 ---
 import Buy from "../assets/svg/Buy_green.svg";
+import Ticket from "../assets/svg/ticket_black.svg";
+import Arrow from "../assets/svg/arrow_black.svg";
 
 import Base from "../layouts/Base.astro";
+import CardInvite from "../components/Card_invite.astro";
+
+import {getInvite} from "../../backend/backend.mjs";
+const invites = await getInvite();
 ---
 
-<Base>
+<Base Titre="Cinémagny">
 	<div class="flex flex-col gap-5 items-center px-5 mt-14">
 		<h2>Billetterie</h2>
 		<div class="flex gap-4">
@@ -13,7 +19,7 @@ import Base from "../layouts/Base.astro";
 			>
 				<h3 class="text-center">Pass 3 permiers jours</h3>
 				<p class="text-center">Du 12 au 14 Novembre</p>
-				<p>25 €</p>
+				<p class="font-black text-xl">25 €</p>
 				<Buy />
 			</div>
 			<div
@@ -21,7 +27,7 @@ import Base from "../layouts/Base.astro";
 			>
 				<h3 class="text-center">Pass 3 permiers jours</h3>
 				<p class="text-center">Du 12 au 14 Novembre</p>
-				<p>25 €</p>
+				<p class="font-black text-xl">25 €</p>
 				<Buy />
 			</div>
 			<div
@@ -29,10 +35,14 @@ import Base from "../layouts/Base.astro";
 			>
 				<h3 class="text-center">Pass 3 permiers jours</h3>
 				<p class="text-center">Du 12 au 14 Novembre</p>
-				<p>25 €</p>
+				<p class="font-black text-xl">25 €</p>
 				<Buy />
 			</div>
 		</div>
+		<a href="/billetteries" class="button-link">
+			Billetteries
+			<Ticket />
+		</a>
 	</div>
 
 	<div class="flex flex-col gap-5 items-center px-5 mt-14">
@@ -51,5 +61,29 @@ import Base from "../layouts/Base.astro";
 			pourrait être agrémenter d’avant-première exclusives d’hommage et
 			rétrospectives à des figures emblématiques du cinéma.
 		</p>
+		<a href="/prog" class="button-link">
+			Plus d'information
+			<Arrow />
+		</a>
+	</div>
+
+	<div class="flex flex-col gap-5 items-center px-5 mt-14">
+		<h2>Programmation</h2>
+		<a href="/prog" class="button-link">
+			Programmation
+			<Arrow />
+		</a>
+	</div>
+
+	<div class="flex flex-col gap-5 items-center px-5 mt-14 mb-14">
+		<h2>Invités</h2>
+		<div class="flex flex-wrap justify-between gap-y-5">
+			<CardInvite {...invites[0]} />
+			<CardInvite {...invites[1]} />
+		</div>
+		<a href="/invite" class="button-link">
+			Les autres Invités
+			<Arrow />
+		</a>
 	</div>
 </Base>

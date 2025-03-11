@@ -2,7 +2,9 @@
 import Logo from "../assets/svg/logo.svg";
 import OpenMenu from "../assets/svg/Open_menu.svg";
 
-import Nav from "../components/Nav.astro"
+import Nav from "../components/Nav.astro";
+
+const { Hero } = Astro.props;
 ---
 
 <header x-data="{ open: false}" class="flex flex-col items-center w-full gap-9 bg-green-dark bg-[url(../assets/img/fond_landing_page.png)] bg-blend-multiply bg-cover pb-28">
@@ -14,7 +16,7 @@ import Nav from "../components/Nav.astro"
             <OpenMenu />
         </button>
     </div>
-    <h1 class="text-white">Cinémagny</h1>
+    <h1 class="text-white">{Hero}</h1>
 
     <Nav />
 </header>

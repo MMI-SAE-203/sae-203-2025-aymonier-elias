@@ -13,7 +13,7 @@
     --color-gray: #8c8c88;
     --color-white: #f2f2f2;
     --color-green-dark: #6c733d;
-    --color-green-light: #9da65d;
+    --color-green-light: #ccd97d;
 }
 
 @layer base {
@@ -27,6 +27,12 @@
         @apply font-texte font-medium text-xl;
     }
     body {
-        @apply font-texte font-medium text-base;
+        @apply font-texte font-medium text-base text-black;
+    }
+}
+
+@layer components {
+    .button-link {
+        @apply bg-green-light w-full flex items-center justify-center uppercase font-black gap-2.5 py-5 px-2.5 rounded-xl;
     }
 }
