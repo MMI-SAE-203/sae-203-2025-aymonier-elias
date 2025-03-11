@@ -9,7 +9,23 @@ export async function getInvite() {
     })
     return records;
 }
-export async function getInviteById(id) {
-    const records = await pb.collection('Invite').getOne(id);
+
+export async function getFilms() {
+    let records = await pb.collection('Filme').getFullList();
+    records = records.map(record => {
+        record.img = pb.files.getURL(record, record.image);
+        return record;
+    })
+    return records;
+}
+
+export async function getFilmsByDate(jours) {
+    const date = "2025-11-" + jours;
+    console.log(date);
+    let records = await pb.collection('Filme').getFullList({filter: `projection="${date}"`});
+    records = records.map(record => {
+        record.img = pb.files.getURL(record, record.image);
+        return record;
+    })
     return records;
 }
