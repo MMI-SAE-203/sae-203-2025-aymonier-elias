@@ -7,16 +7,16 @@ import Nav from "../components/Nav.astro";
 const { Hero } = Astro.props;
 ---
 
-<header x-data="{ open: false}" class="flex flex-col items-center w-full gap-9 bg-green-dark bg-[url(../assets/img/fond_landing_page.png)] bg-blend-multiply bg-cover pb-28">
-    <div class="flex justify-between px-8 py-5 w-full">
+<header x-data="{ open: false}" class="flex flex-col items-center w-full gap-9 lg:gap-28 bg-green-dark bg-[url(../assets/img/fond_landing_page.png)] bg-blend-multiply bg-cover pb-28">
+    <div class="flex justify-between px-8 py-5 w-full lg:justify-start lg:items-center lg:gap-15">
         <a href="/">
             <Logo />
         </a>
-        <button @click="open = true" class="cursor-pointer">
+        <Nav />
+        <button @click="open = true" class="cursor-pointer lg:hidden">
             <OpenMenu />
         </button>
     </div>
     <h1 class="text-white">{Hero}</h1>
 
-    <Nav />
 </header>

@@ -10,56 +10,73 @@ import Info from "../assets/svg/about_blanc.svg";
 import Contact from "../assets/svg/mail_blanc.svg";
 ---
 
-<nav :aria-hidden="!open" class="bg-green-dark fixed inset-0 aria-hidden:hidden">
-    <div class="flex justify-between py-5 px-8">
+<nav
+    :aria-hidden="!open"
+    class="bg-green-dark fixed inset-0 max-lg:aria-hidden:hidden lg:visible lg:relative lg:bg-transparent"
+>
+    <div class="flex justify-between py-5 px-8 lg:hidden">
         <Buy />
         <button @click="open = false" class="cursor-pointer">
             <CloseMenu />
         </button>
     </div>
-    <div class="flex flex-col gap-6 py-13 px-8">
+    <div class="flex flex-col gap-4 py-5 px-8 lg:flex-row lg:p-0 lg:*:*:font-normal">
         <div class="flex gap-5 items-center">
-            <Book />
+            <span class="lg:hidden">
+                <Book />
+            </span>
             <a href="/a_propos" class="text-white uppercase font-bold"
                 >À Propos</a
             >
         </div>
-        <span class="bg-white w-full h-0.75 relative"></span>
+        <span class="bg-white w-full h-0.75 relative lg:hidden"></span>
         <div class="flex gap-5 items-center">
-            <Billet />
-            <a href="/a_propos" class="text-white uppercase font-bold"
+            <span class="lg:hidden">
+                <Billet />
+            </span>
+            <a href="/billeterie" class="text-white uppercase font-bold"
                 >Billeterie</a
             >
         </div>
-        <span class="bg-white w-full h-0.75 relative"></span>
+        <span class="bg-white w-full h-0.75 relative lg:hidden"></span>
         <div class="flex gap-5 items-center">
-            <Films />
-            <a href="/a_propos" class="text-white uppercase font-bold">Films</a>
+            <span class="lg:hidden">
+                <Films />
+            </span>
+            <a href="/films/" class="text-white uppercase font-bold">Films</a>
         </div>
-        <span class="bg-white w-full h-0.75 relative"></span>
+        <span class="bg-white w-full h-0.75 relative lg:hidden"></span>
         <div class="flex gap-5 items-center">
-            <Prog />
-            <a href="/a_propos" class="text-white uppercase font-bold"
+            <span class="lg:hidden">
+                <Prog />
+            </span>
+            <a href="/programmation" class="text-white uppercase font-bold"
                 >Programmation</a
             >
         </div>
-        <span class="bg-white w-full h-0.75 relative"></span>
+        <span class="bg-white w-full h-0.75 relative lg:hidden"></span>
         <div class="flex gap-5 items-center">
-            <Invit />
-            <a href="/a_propos" class="text-white uppercase font-bold"
+            <span class="lg:hidden">
+                <Invit />
+            </span>
+            <a href="/invites/" class="text-white uppercase font-bold"
                 >Invités</a
             >
         </div>
-        <span class="bg-white w-full h-0.75 relative"></span>
+        <span class="bg-white w-full h-0.75 relative lg:hidden"></span>
         <div class="flex gap-5 items-center">
-            <Info />
+            <span class="lg:hidden">
+                <Info />
+            </span>
             <a href="/a_propos" class="text-white uppercase font-bold"
                 >Infos pratiques</a
             >
         </div>
-        <span class="bg-white w-full h-0.75 relative"></span>
+        <span class="bg-white w-full h-0.75 relative lg:hidden"></span>
         <div class="flex gap-5 items-center">
-            <Contact />
+            <span class="lg:hidden">
+                <Contact />
+            </span>
             <a href="/a_propos" class="text-white uppercase font-bold"
                 >Contact</a
             >

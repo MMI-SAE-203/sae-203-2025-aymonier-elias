@@ -6,84 +6,83 @@ import Arrow from "../assets/svg/arrow_black.svg";
 import Base from "../layouts/Base.astro";
 import CardInvite from "../components/Card_invite.astro";
 
-import {getInvite} from "../../backend/backend.mjs";
+import {getInvite, getFilmsByDate} from "../../backend/backend.mjs";
 const invites = await getInvite();
 ---
 
 <Base Titre="Cinémagny">
-	<div class="flex flex-col gap-5 items-center px-5 mt-14">
-		<h2>Billetterie</h2>
-		<div class="flex gap-4">
-			<div
-				class="bg-black text-white flex flex-col gap-5 justify-between items-center rounded-lg p-2.5"
-			>
-				<h3 class="text-center">Pass 3 permiers jours</h3>
-				<p class="text-center">Du 12 au 14 Novembre</p>
-				<p class="font-black text-xl">25 €</p>
-				<Buy />
+	<section class="lg:flex lg:flex-wrap ">
+		<div class="flex flex-col gap-5 items-center px-5 mt-14 lg:w-1/2">
+			<h2>Billetterie</h2>
+			<div class="flex gap-4">
+				<div
+					class="bg-black text-white flex flex-col gap-5 justify-between items-center rounded-lg p-2.5"
+				>
+					<h3 class="text-center">Pass 3 permiers jours</h3>
+					<p class="text-center">Du 12 au 14 Novembre</p>
+					<p class="font-black text-xl">25 €</p>
+					<Buy />
+				</div>
+				<div
+					class="bg-black text-white flex flex-col gap-5 justify-between items-center rounded-lg p-2.5"
+				>
+					<h3 class="text-center">Pass 3 permiers jours</h3>
+					<p class="text-center">Du 12 au 14 Novembre</p>
+					<p class="font-black text-xl">25 €</p>
+					<Buy />
+				</div>
+				<div
+					class="bg-black text-white flex flex-col gap-5 justify-between items-center rounded-lg p-2.5"
+				>
+					<h3 class="text-center">Pass 3 permiers jours</h3>
+					<p class="text-center">Du 12 au 14 Novembre</p>
+					<p class="font-black text-xl">25 €</p>
+					<Buy />
+				</div>
 			</div>
-			<div
-				class="bg-black text-white flex flex-col gap-5 justify-between items-center rounded-lg p-2.5"
-			>
-				<h3 class="text-center">Pass 3 permiers jours</h3>
-				<p class="text-center">Du 12 au 14 Novembre</p>
-				<p class="font-black text-xl">25 €</p>
-				<Buy />
-			</div>
-			<div
-				class="bg-black text-white flex flex-col gap-5 justify-between items-center rounded-lg p-2.5"
-			>
-				<h3 class="text-center">Pass 3 permiers jours</h3>
-				<p class="text-center">Du 12 au 14 Novembre</p>
-				<p class="font-black text-xl">25 €</p>
-				<Buy />
-			</div>
+			<a href="/billetteries" class="button-link">
+				Billetteries
+				<Ticket />
+			</a>
 		</div>
-		<a href="/billetteries" class="button-link">
-			Billetteries
-			<Ticket />
-		</a>
-	</div>
-
-	<div class="flex flex-col gap-5 items-center px-5 mt-14">
-		<h2>À Propos</h2>
-		<p>
-			<strong class="font-bold">CINEMAGNY</strong> est un festival audiovisuel localisé à <a href="" class="text-green-light">Giromagny</a> dédié
-			exclusivement au 7ᵉ art. Il proposera une sélection variée de films
-			allant des longs au court métrage, ainsi que des documentaires ou
-			films d’animation. L’objectif est de célébrer le cinéma dans toute
-			sa diversité et de mettre en avant des œuvres, méconnu, innovante ou
-			originale. La particularité de ce festival sera son engagement à
-			mettre en avant des talents émergent du cinéma indépendant et mettre
-			en lumière des artistes locaux. <strong class="font-bold">CINEMAGNY</strong> offrira une plateforme aux
-			nouveaux réalisateurs pour présenter leurs œuvres aussi bien au
-			public qu’au professionnel de l’industrie audiovisuel. Le tout
-			pourrait être agrémenter d’avant-première exclusives d’hommage et
-			rétrospectives à des figures emblématiques du cinéma.
-		</p>
-		<a href="/prog" class="button-link">
-			Plus d'information
-			<Arrow />
-		</a>
-	</div>
-
-	<div class="flex flex-col gap-5 items-center px-5 mt-14">
-		<h2>Programmation</h2>
-		<a href="/prog" class="button-link">
-			Programmation
-			<Arrow />
-		</a>
-	</div>
-
-	<div class="flex flex-col gap-5 items-center px-5 mt-14 mb-14">
-		<h2>Invités</h2>
-		<div class="flex flex-wrap justify-between gap-y-5">
-			<CardInvite {...invites[0]} />
-			<CardInvite {...invites[1]} />
+		<div class="flex flex-col gap-5 items-center px-5 mt-14 lg:w-1/2">
+			<h2>À Propos</h2>
+			<p>
+				<strong class="font-bold">CINEMAGNY</strong> est un festival audiovisuel localisé à <a href="" class="text-green-light">Giromagny</a> dédié
+				exclusivement au 7ᵉ art. Il proposera une sélection variée de films
+				allant des longs au court métrage, ainsi que des documentaires ou
+				films d'animation. L'objectif est de célébrer le cinéma dans toute
+				sa diversité et de mettre en avant des œuvres, méconnu, innovante ou
+				originale. La particularité de ce festival sera son engagement à
+				mettre en avant des talents émergent du cinéma indépendant et mettre
+				en lumière des artistes locaux. <strong class="font-bold">CINEMAGNY</strong> offrira une plateforme aux
+				nouveaux réalisateurs pour présenter leurs œuvres aussi bien au
+				public qu'au professionnel de l'industrie audiovisuel. Le tout
+				pourrait être agrémenter d'avant-première exclusives d'hommage et
+				rétrospectives à des figures emblématiques du cinéma.
+			</p>
+			<a href="/prog" class="button-link">
+				Plus d'information
+				<Arrow />
+			</a>
 		</div>
-		<a href="/invite" class="button-link">
-			Les autres Invités
-			<Arrow />
-		</a>
-	</div>
+		<div class="flex flex-col gap-5 items-center px-5 mt-14 lg:w-full">
+			<h2>Programmation</h2>
+			<a href="/prog" class="button-link">
+				Programmation
+				<Arrow />
+			</a>
+		</div>
+		<div class="flex flex-col gap-5 items-center px-5 mt-14 mb-14 lg:w-full">
+			<h2>Invités</h2>
+			<div class="flex flex-wrap justify-between gap-y-5">
+				<CardInvite {...invites[1]} />
+				<CardInvite {...invites[0]} />
+			</div>
+			<a href="/invites/" class="button-link">
+				Les autres Invités
+				<Arrow />
+			</a>
+		</div>
+	</section>
 </Base>

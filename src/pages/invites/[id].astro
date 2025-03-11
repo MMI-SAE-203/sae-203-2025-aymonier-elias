@@ -1,0 +1,10 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const {id} = Astro.params;
+import {getInviteById} from "../../../backend/backend.mjs";
+const invite = await getInviteById(id);
+---
+
+<Base Titre=`${invite.prenom} ${invite.nom}`>
+</Base>
