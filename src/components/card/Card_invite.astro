@@ -1,11 +1,9 @@
 ---
 const {...invite} = Astro.props;
-const {...teste} = Astro.props;
 ---
 
 <a href=`/invites/${invite.id}` class="flex flex-col w-10/21">
     <img src={invite.img} alt=`Portait de ${invite.nom}`>
     <h3>{invite.prenom} {invite.nom}</h3>
     <p>{invite.metier}</p>
-    <p>{teste.projection}</p>
 </a>

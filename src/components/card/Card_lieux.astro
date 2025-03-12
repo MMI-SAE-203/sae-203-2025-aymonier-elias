@@ -1,0 +1,8 @@
+---
+const {...lieu} = Astro.props;
+---
+
+<div class="flex flex-col w-full">
+    <img src={lieu.img} alt=`Photo de ${lieu.nom}` class="rounded-md">
+    <p class="italic text-gray font-light">{lieu.nom}<p/>
+<div/>

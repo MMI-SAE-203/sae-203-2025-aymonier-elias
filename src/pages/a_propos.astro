@@ -1,0 +1,77 @@
+---
+import Base from "../layouts/Base.astro";
+import CardLieux from "../components/card/Card_lieux.astro";
+
+import Activite1 from "../assets/img/activite1.avif";
+import Activite2 from "../assets/img/activite2.avif";
+import Activite3 from "../assets/img/activite3.avif";
+
+import { getLieux } from "../../backend/backend.mjs";
+const lieux = await getLieux();
+---
+
+<Base Titre="À Propos">
+    <section class="flex flex-col items-center justify-center gap-16 py-16 lg:grid lg:grid-cols-2 lg:px-32">
+        <div  class="flex justify-center lg:col-start-1 lg:col-end-3 lg:order-1">
+            <h2>Du 12 au 16 novembre</h2>
+        </div>
+        <p class="px-5 lg:order-2">
+            Le festival Cinémagny, est un événement unique, conçu pour allier
+            passion du cinéma et sensibilisation aux enjeux environnementaux. Il
+            propose une sélection variée de films qui abordent des thèmes
+            inspirants, allant de la nature aux défis écologiques actuels.
+            Chaque jour, les participants auront l'occasion de découvrir des
+            œuvres cinématographiques fortes, qui suscitent réflexion et débat.
+        </p>
+        <img src={Activite3.src} alt="" class="lg:order-3 md:rounded-xl"/>
+        <p class="px-5 lg:order-5">
+            Le festival, situé à Giromagny, met également un point d'honneur à
+            l'écoresponsabilité, en proposant des repas locaux et durables à
+            chaque participant. Pour clôturer l'événement, une grande cérémonie
+            de fermeture, avec une soirée DJ, permettra de célébrer ensemble
+            cette expérience riche en découvertes, partages et apprentissages.
+            C'est un rendez-vous à ne pas manquer pour tous les passionnés de
+            cinéma et d'écologie !
+        </p>
+        <img src={Activite2.src} alt="" class="lg:order-4 md:rounded-xl"/>
+        <p class="px-5 lg:order-5">
+            Le festival, situé à Giromagny, met également un point d'honneur à
+            l'écoresponsabilité, en proposant des repas locaux et durables à
+            chaque participant. Pour clôturer l'événement, une grande cérémonie
+            de fermeture, avec une soirée DJ, permettra de célébrer ensemble
+            cette expérience riche en découvertes, partages et apprentissages.
+            C’est un rendez-vous à ne pas manquer pour tous les passionnés de
+            cinéma et d’écologie !
+        </p>
+        <img src={Activite1.src} alt="" class="lg:order-6 md:rounded-xl"/>
+        <p class="px-5 lg:col-start-1 lg:col-end-3 lg:order-7">
+            Le festival se tiendra dans plusieurs lieux emblématiques de
+            Giromagny, choisis pour leur capacité à accueillir différentes
+            activités en lien avec l'esprit du festival.
+        </p>
+        <p class="px-5 lg:col-start-1 lg:col-end-3 lg:order-8">
+            La <strong class="font-black text-[1.1rem]"
+                >Salle du Conseil Municipal</strong
+            >, au cœur de la ville, servira de cadre aux interventions et
+            discussions sur les thématiques environnementales, favorisant
+            l'échange d'idées entre experts et participants. <strong
+                class="font-black text-[1.1rem]">L'Espace de la Tuileri</strong
+            >e et <strong class="font-black text-[1.1rem]"
+                >l'Espace Mazarin</strong
+            >, accueilleront les projections de films. Ces espaces ont été
+            choisis pour leur accessibilité et leurs équipements, permettant de
+            vivre pleinement l'expérience cinématographique du festival.
+        </p> 
+        <p class="px-5 lg:col-start-1 lg:col-end-3 lg:order-9">
+            Enfin, <strong class="font-black text-[1.1rem]"
+                >le Château de la Rosemontoise</strong
+            >, au cadre prestigieux, a été sélectionné pour la cérémonie de
+            clôture. Ce lieu unique offrira une atmosphère intime et festive
+            pour conclure le festival en célébrant les rencontres et les
+            découvertes faites au cours des cinq jours.
+        </p>
+        <div class="flex gap-10 px-5 mb-16 lg:col-start-1 lg:col-end-3 lg:order-10">
+            {lieux.map((lieu) => <CardLieux {...lieu} />)}
+        </div>
+    </section>
+</Base>

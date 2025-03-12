@@ -10,6 +10,15 @@ export async function getInvite() {
     return records;
 }
 
+export async function getLieux() {
+    let records = await pb.collection('Lieux').getFullList();
+    records = records.map(record => {
+        record.img = pb.files.getURL(record, record.image);
+        return record;
+    })
+    return records;
+}
+
 export async function getInviteById(id) {
     let record = await pb.collection('Invite').getOne(id);
         record.img = pb.files.getURL(record, record.image);
