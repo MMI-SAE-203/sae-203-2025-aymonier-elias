@@ -1,22 +1,24 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Card from "../../components/card/Card_invite.astro";
 
 import Arrow from "../../assets/svg/arrow_black.svg";
 
 const { id } = Astro.params;
-import { getFilmsById } from "../../../backend/backend.mjs";
+import { getFilmsById, getInviteById } from "../../../backend/backend.mjs";
 const film = await getFilmsById(id);
+const invite = await getInviteById(film.invite);
 ---
 
 <Base Titre="Film">
     <section
-        class="flex flex-col py-12 lg:px-20 gap-12 lg:flex-row lg:flex-wrap lg:justify-center lg:items-center"
+        class="flex flex-col py-12 gap-16 lg:grid lg:grid-cols-2 lg:px-32"
     >
-        <div class="flex flex-col items-center gap-5 lg:flex-row lg:w-full lg:justify-center">
+        <div class="flex flex-col items-center justify-center gap-5 lg:col-start-1 lg:col-end-3 lg:flex-row">
             <h2>{film.titre}</h2>
             <img src={film.img} alt=`Affiche du film ${film.titre}` class="w-full lg:w-1/2 lg:rounded-lg"/>
         </div>
-        <div class="flex flex-col items-center px-5 w-full gap-5 lg:w-1/3">
+        <div class="flex flex-col items-center justify-between gap-5">
             <h2>Info</h2>
             <ul class="flex flex-col gap-y-3 w-2/3 lg:w-full">
                 <li class="flex justify-between w-full">Durée : <span class="font-bold text-[1.1rem]">{film.dure}</span></li>
@@ -28,7 +30,7 @@ const film = await getFilmsById(id);
                 <Arrow />
             </a>
         </div>
-        <div class="flex flex-col items-center px-5 gap-5 lg:1/3">
+        <div class="flex flex-col items-center gap-5">
             <h2>Bande-Annonce</h2>
             <iframe
             width="560"
@@ -40,12 +42,11 @@ const film = await getFilmsById(id);
             allowfullscreen
             class="rounded-lg"></iframe>
         </div>
-        <div>
+        <div class="flex flex-col items-center gap-5">
             <h2>Qui sera présent</h2>
-            <!-- <img src={film.invite.nom} alt=""> -->
-            <p>{film.invite.nom}</p>
+            <Card {...invite} />
         </div>
-        <div class="flex flex-col items-center px-5 gap-5 lg:w-2/3">
+        <div class="flex flex-col items-center px-5 gap-5">
             <h2>Synopsis</h2>
             <p>{film.synopsis}</p>
             <a href={film.wikipedia} class="button-link">

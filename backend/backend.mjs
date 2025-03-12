@@ -76,8 +76,6 @@ export async function getActiviteByInviteId(id) {
 
 
 
-
-
 function formatDate(dateStr) {
     const date = new Date(dateStr.replace(" ", "T"));
     return new Intl.DateTimeFormat("fr-FR", {
