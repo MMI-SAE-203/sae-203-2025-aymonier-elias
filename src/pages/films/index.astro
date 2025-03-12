@@ -1,0 +1,20 @@
+---
+import Base from "../../layouts/Base.astro";
+import CardFilms from "../../components/Card_film.astro";
+
+import { getFilms } from "../../../backend/backend.mjs";
+const films = await getFilms();
+---
+
+<Base Titre="Films">
+    <div class="flex flex-col items-center gap-12 py-12">
+        <h2>Les films de cette année</h2>
+        <div class="flex flex-wrap justify-between px-5 items-end gap-y-10 lg:gap-x-5">
+            {
+                films.map((film) => (
+                    <CardFilms {...film} />
+                ))
+            }
+        </div>
+    </div>
+</Base>

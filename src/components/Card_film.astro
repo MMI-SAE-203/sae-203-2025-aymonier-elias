@@ -1,0 +1,8 @@
+---
+const {...film} = Astro.props;
+---
+
+<a href=`/films/${film.id}` class="flex flex-col w-9/21 lg:w-1/5">
+    <h3>{film.titre}</h3>
+    <img src={film.img} alt={film.titre}>
+</a>

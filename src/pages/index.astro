@@ -11,8 +11,8 @@ const invites = await getInvite();
 ---
 
 <Base Titre="Cinémagny">
-	<section class="lg:flex lg:flex-wrap ">
-		<div class="flex flex-col gap-5 items-center px-5 mt-14 lg:w-1/2">
+	<section class="lg:flex lg:flex-wrap lg:px-20 lg:gap-5 lg:justify-between">
+		<div class="flex flex-col gap-5 items-center px-5 mt-14 lg:w-5/11">
 			<h2>Billetterie</h2>
 			<div class="flex gap-4">
 				<div
@@ -26,17 +26,17 @@ const invites = await getInvite();
 				<div
 					class="bg-black text-white flex flex-col gap-5 justify-between items-center rounded-lg p-2.5"
 				>
-					<h3 class="text-center">Pass 3 permiers jours</h3>
-					<p class="text-center">Du 12 au 14 Novembre</p>
-					<p class="font-black text-xl">25 €</p>
+					<h3 class="text-center">Pass 3 derniers jours</h3>
+					<p class="text-center">Du 14 au 16 Novembre</p>
+					<p class="font-black text-xl">28 €</p>
 					<Buy />
 				</div>
 				<div
 					class="bg-black text-white flex flex-col gap-5 justify-between items-center rounded-lg p-2.5"
 				>
-					<h3 class="text-center">Pass 3 permiers jours</h3>
-					<p class="text-center">Du 12 au 14 Novembre</p>
-					<p class="font-black text-xl">25 €</p>
+					<h3 class="text-center">Pass 5 permiers jours</h3>
+					<p class="text-center">Du 12 au 16 Novembre</p>
+					<p class="font-black text-xl">45 €</p>
 					<Buy />
 				</div>
 			</div>
@@ -61,7 +61,7 @@ const invites = await getInvite();
 				pourrait être agrémenter d'avant-première exclusives d'hommage et
 				rétrospectives à des figures emblématiques du cinéma.
 			</p>
-			<a href="/prog" class="button-link">
+			<a href="/prog" class="button-link lg:w-2/3">
 				Plus d'information
 				<Arrow />
 			</a>

@@ -1,4 +1,4 @@
-import { getFilms, getFilmsByDate, getInvite } from "./backend.mjs";
+import { getFilms, getFilmsByDate, getFilmsById, getInvite } from "./backend.mjs";
 
 // try {
 //     const record = await getInvite();
@@ -7,12 +7,12 @@ import { getFilms, getFilmsByDate, getInvite } from "./backend.mjs";
 //     console.error(e);
 // }
 
-try {
-    const record = await getFilmsByDate("12");
-    console.log(JSON.stringify(record, null, 2))
-} catch (e) {
-    console.error(e);
-}
+// try {
+//     const record = await getFilmsByDate("12");
+//     console.log(JSON.stringify(record, null, 2))
+// } catch (e) {
+//     console.error(e);
+// }
 
 // try {
 //     const record = await getFilms();
@@ -20,3 +20,10 @@ try {
 // } catch (e) {
 //     console.error(e);
 // }
+
+try {
+    const record = await getFilmsById("z7ku5ap2fblt63m");
+    console.log(JSON.stringify(record, null, 2))
+} catch (e) {
+    console.error(e);
+}
