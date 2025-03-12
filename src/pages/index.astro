@@ -4,7 +4,7 @@ import Ticket from "../assets/svg/ticket_black.svg";
 import Arrow from "../assets/svg/arrow_black.svg";
 
 import Base from "../layouts/Base.astro";
-import CardInvite from "../components/Card_invite.astro";
+import CardInvite from "../components/card/Card_invite.astro";
 
 import {getInvite, getFilmsByDate} from "../../backend/backend.mjs";
 const invites = await getInvite();

@@ -48,3 +48,49 @@ export async function getFilmsByDate(jours) {
     })
     return records;
 }
+
+
+export async function getFilmsByInviteId(id) {
+    let record = await pb.collection('Films').getFullList({filter: `invite="${id}"`});
+    record = record.map(record => {
+        record.img = pb.files.getURL(record, record.affiche);
+        record.jour = formatDate(record.projection);
+        record.heure = formatHeure(record.projection);
+        return record;
+    })
+    return record;
+}
+export async function getActiviteByInviteId(id) {
+    let record = await pb.collection('Activite').getFullList({filter: `invite="${id}"`});
+    record = record.map(record => {
+        record.img = pb.files.getURL(record, record.affiche);
+        record.jour = formatDate(record.projection);
+        record.heure = formatHeure(record.projection);
+        return record;
+    })
+    return record;
+}
+
+
+
+
+
+
+
+
+function formatDate(dateStr) {
+    const date = new Date(dateStr.replace(" ", "T"));
+    return new Intl.DateTimeFormat("fr-FR", {
+        weekday: "long",
+        day: "numeric",
+        month: "long",
+    }).format(date);
+}
+
+function formatHeure(dateStr) {
+    const date = new Date(dateStr.replace(" ", "T"));
+    return new Intl.DateTimeFormat("fr-FR", {
+        hour: "2-digit",
+        minute: "2-digit",
+    }).format(date).replace(":", "h");
+}

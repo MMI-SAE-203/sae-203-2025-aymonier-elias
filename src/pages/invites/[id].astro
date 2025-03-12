@@ -1,20 +1,24 @@
 ---
 import Base from "../../layouts/Base.astro";
+import CardFilms from "../../components/card/Card_inter_films.astro";
+import CardActivite from "../../components/card/Card_inter_activite.astro";
 
 import Arrow from "../../assets/svg/arrow_black.svg"
 
 const {id} = Astro.params;
-import {getInviteById} from "../../../backend/backend.mjs";
+import {getFilmsByInviteId, getInviteById, getActiviteByInviteId} from "../../../backend/backend.mjs";
 const invite = await getInviteById(id);
+const films = await getFilmsByInviteId(id);
+const activites = await getActiviteByInviteId(id);
 ---
 
 <Base Titre="Invité">
-    <section class="flex flex-col gap-12 py-12 lg:px-20 lg:flex-row lg:flex-wrap lg:justify-between">
-        <div class="flex flex-col gap-5 items-center lg:p-5 lg:w-full lg:flex-row lg:justify-center">
+    <section class="flex flex-col gap-12 py-12 lg:grid lg:grid-cols-2 lg:px-32">
+        <div class="flex flex-col gap-5 items-center justify-center lg:flex-row lg:col-start-1 lg:col-end-3">
             <h2 >{invite.prenom} {invite.nom}</h2>
             <img src={invite.img} alt=`Portrait de ${invite.prenom} ${invite.nom}` class="w-full lg:w-1/3 md:w-1/2 md:rounded-xl">
         </div>
-        <div class="flex flex-col gap-5 items-center p-5 lg:w-2/5 ">
+        <div class="flex flex-col gap-5 items-center p-5">
             <h2>Biographie</h2>
             <p>{invite.bio}</p>
             <a href={invite.wikipedia} class="button-link w-full">
@@ -22,9 +26,21 @@ const invite = await getInviteById(id);
                 <Arrow />
             </a>
         </div>
-        <div class="flex flex-col gap-5 items-center p-5 lg:w-2/5">
+        <div class="flex flex-col gap-5 items-center p-5">
             <h2>Intervention</h2>
             <p>{invite.interventions}</p>
-        </div>
+            <div class="flex flex-wrap gap-5">
+                {
+                    films.map((film) => (
+                        <CardFilms {...film} />
+                    ))
+                }
+                {
+                    activites.map((film) => (
+                        <CardFilms {...film} />
+                    ))
+                }
+            </div>
+        </di>
     </section>
 </Base>

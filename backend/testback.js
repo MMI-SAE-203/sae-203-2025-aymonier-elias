@@ -1,4 +1,4 @@
-import { getFilms, getFilmsByDate, getFilmsById, getInvite } from "./backend.mjs";
+import { getFilms, getFilmsByDate, getFilmsById, getFilmsByInviteId, getInvite } from "./backend.mjs";
 
 // try {
 //     const record = await getInvite();
@@ -22,7 +22,7 @@ import { getFilms, getFilmsByDate, getFilmsById, getInvite } from "./backend.mjs
 // }
 
 try {
-    const record = await getFilmsById("z7ku5ap2fblt63m");
+    const record = await getFilmsByInviteId("4rhz344r9b5965p");
     console.log(JSON.stringify(record, null, 2))
 } catch (e) {
     console.error(e);
