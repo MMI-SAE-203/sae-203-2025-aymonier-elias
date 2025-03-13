@@ -1,0 +1,83 @@
+---
+import Base from "../layouts/Base.astro";
+import Card from "../components/card/Card_prog.astro";
+
+import Arrow from "../assets/svg/arrow_down_black.svg"
+
+import { getFilmsByDate, getLieux } from "../../backend/backend.mjs";
+const films12 = await getFilmsByDate(12);
+const films13 = await getFilmsByDate(13);
+const films14 = await getFilmsByDate(14);
+const films15 = await getFilmsByDate(15);
+const films16 = await getFilmsByDate(16);
+---
+
+<Base Titre="Programmation">
+    <section class="flex flex-col gap-5 items-center px-5 py-16 lg:px-32 lg:gap-16">
+        <h2>Nos films cette années</h2>
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-5 items-center">
+                <span class="bg-green-dark w-1/5 h-0.75"></span>
+                <div>
+                    <p>Jours 1</p>
+                    <h3>Films d'annimations</h3>
+                </div>
+            </div>
+            <div class="flex gap-5 overflow-x-scroll w-full lg:overflow-auto justify-between">
+                {films12.map((film) => <Card {...film} />)}
+            </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-5 items-center">
+                <span class="bg-green-dark w-1/5 h-0.75"></span>
+                <div>
+                    <p>Jours 2</p>
+                    <h3>Films d'action</h3>
+                </div>
+            </div>
+            <div class="flex gap-5 overflow-x-scroll w-full lg:overflow-auto justify-between">
+                {films13.map((film) => <Card {...film} />)}
+            </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-5 items-center">
+                <span class="bg-green-dark w-1/5 h-0.75"></span>
+                <div>
+                    <p>Jours 3</p>
+                    <h3>Films sur l'espace</h3>
+                </div>
+            </div>
+            <div class="flex gap-5 overflow-x-scroll w-full lg:overflow-auto justify-between">
+                {films14.map((film) => <Card {...film} />)}
+            </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-5 items-center">
+                <span class="bg-green-dark w-1/5 h-0.75"></span>
+                <div>
+                    <p>Jours 4</p>
+                    <h3>Films humoristiques</h3>
+                </div>
+            </div>
+            <div class="flex gap-5 overflow-x-scroll w-full lg:overflow-auto justify-between">
+                {films15.map((film) => <Card {...film} />)}
+            </div>
+        </div>
+        <div class="flex flex-col gap-2 w-full">
+            <div class="flex gap-5 items-center">
+                <span class="bg-green-dark w-1/5 h-0.75"></span>
+                <div>
+                    <p>Jours 5</p>
+                    <h3>Films serieux</h3>
+                </div>
+            </div>
+            <div class="flex gap-5 overflow-x-scroll w-full lg:overflow-auto justify-between">
+                {films16.map((film) => <Card {...film} />)}
+            </div>
+        </div>
+        <a href="assets/document/Cinemagny-Pregramme_du_festival.pdf" target="_blank" class="button-link mt-16">
+            Télécharger
+            <Arrow />
+        </a>
+    </section>
+</Base>

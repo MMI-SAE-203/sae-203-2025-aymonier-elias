@@ -1,6 +1,46 @@
 ---
 import Base from "../layouts/Base.astro";
+
+import Send from "../assets/svg/send_black.svg";
+
+import { sendMsg } from "../../backend/backend.mjs";
+
+if (Astro.request.method == "POST") {
+    const data = await Astro.request.formData();
+    console.log(data);
+    const response = await sendMsg(data)
+    return Astro.redirect("/contact?success=1")
+}
 ---
 
 <Base Titre="Contact">
+    <section class="flex flex-col items-center py-16 gap-5 lg:px-32 lg:gap-16">
+        <h2 class="">Besoin de nous donner votre avis ?</h2>
+
+        {Astro.url.searchParams.get("success") ? <p class="text-green-dark font-light">Message envoyé avec succès !</p> : ""}
+
+        <form method="post" action="/contact" enctype="multipart/form-data" class="flex flex-col gap-10 w-full px-5 lg:grid lg:grid-cols-2">
+            <div class="flex flex-col">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom" placeholder="Votre nom" required class="border-2 rounded-md border-green-dark py-1 px-3">
+            </div>
+            <div class="flex flex-col">
+                <label for="prenom">Prenom</label>
+                <input type="text" name="prenom" id="prenom" placeholder="Votre prénom" required class="border-2 rounded-md border-green-dark py-1 px-3">
+            </div>
+            <div class="flex flex-col lg:w-1/2 lg:justify-self-center lg:col-start-1 lg:col-end-3">
+                <label for="mail">Comment vous tenir au courant ?</label>
+                <input type="email" name="mail" id="mail" placeholder="Votre adresse e-mail" required class="border-2 rounded-md border-green-dark py-1 px-3">
+            </div>
+            <div class="flex flex-col lg:col-start-1 col-end-3">
+                <label for="msg">Que voulez vous nous dire ?</label>
+                <textarea name="msg" id="msg" placeholder="Votre message" required class="border-2 rounded-md border-green-dark py-1 px-3 min-h-40"></textarea>
+            </div>
+            <button type="submit" class="button-link lg:justify-self-center lg:col-start-1 lg:col-end-3">
+                Envoyer
+                <Send />
+            </button>
+        </form>
+
+    </section>
 </Base>

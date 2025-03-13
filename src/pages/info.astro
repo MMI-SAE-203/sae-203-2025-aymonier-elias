@@ -47,9 +47,7 @@ const lieux = await getLieux();
         <div class="flex flex-col gap-5 justify-center items-center">
             <h2>Lieux</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quasi corporis quo. Voluptatibus et dolorum natus consectetur, veniam quos. Veniam, ea asperiores nam commodi eaque accusamus eveniet magnam minima quos!</p>
-            <div
-                class="flex gap-10 px-5 mb-16 lg:col-start-1 lg:col-end-3 lg:order-10"
-            >
+            <div class="grid grid-cols-2 lg:grid-cols-none lg:flex gap-5 px-5 mb-16 lg:col-start-1 lg:col-end-3 lg:order-10 w-full">
                 {lieux.map((lieu) => <CardLieux {...lieu} />)}
             </div>
         </div>

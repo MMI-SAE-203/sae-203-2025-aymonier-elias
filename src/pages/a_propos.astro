@@ -70,7 +70,7 @@ const lieux = await getLieux();
             pour conclure le festival en célébrant les rencontres et les
             découvertes faites au cours des cinq jours.
         </p>
-        <div class="flex gap-10 px-5 mb-16 lg:col-start-1 lg:col-end-3 lg:order-10">
+        <div class="grid grid-cols-2 lg:grid-cols-none lg:flex gap-5 px-5 mb-16 lg:col-start-1 lg:col-end-3 lg:order-10 w-full">
             {lieux.map((lieu) => <CardLieux {...lieu} />)}
         </div>
     </section>

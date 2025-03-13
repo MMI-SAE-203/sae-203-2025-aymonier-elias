@@ -19,6 +19,11 @@ export async function getLieux() {
     return records;
 }
 
+export async function getLieuxById(id) {
+    let record = await pb.collection('Lieux').getOne(id);
+    return record;
+}
+
 export async function getInviteById(id) {
     let record = await pb.collection('Invite').getOne(id);
         record.img = pb.files.getURL(record, record.image);
@@ -53,6 +58,8 @@ export async function getFilmsByDate(jours) {
     let records = await pb.collection('Films').getFullList({filter: `projection<"${date}" && projection>"${dateSup}"`});
     records = records.map(record => {
         record.img = pb.files.getURL(record, record.affiche);
+        record.jour = formatDate(record.projection);
+        record.heure = formatHeure(record.projection);
         return record;
     })
     return records;
@@ -80,7 +87,20 @@ export async function getActiviteByInviteId(id) {
     return record;
 }
 
-
+export async function sendMsg(data) {
+    try {
+        await pb.collection("Contact").create(data);
+        return {
+            success: true,
+            message: "Votre message à bien été envoyer.",
+        };
+    } catch (error) {
+        return {
+            success: false,
+            message: "Une erreur est survenue lors de l'envoie du message : " + error,
+        };
+    }
+}
 
 
 
