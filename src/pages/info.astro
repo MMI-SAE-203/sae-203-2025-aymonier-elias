@@ -9,7 +9,9 @@ const lieux = await getLieux();
 ---
 
 <Base Titre="Infos Pratiques">
-    <section class="flex flex-col gap-16 items-center px-5 py-16 justify-center lg:grid lg:grid-cols-2 lg:px-32">
+    <section
+        class="flex flex-col gap-16 items-center px-5 py-16 justify-center lg:grid lg:grid-cols-2 lg:px-32"
+    >
         <div class="flex flex-col gap-5 items-center self-start">
             <h2>Tarifs</h2>
             <div class="flex gap-5">
@@ -38,20 +40,68 @@ const lieux = await getLieux();
         </div>
         <div class="flex flex-col gap-5 justify-center items-center">
             <h2>Hébergements</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius totam blanditiis iusto distinctio nam repellendus voluptatibus, eveniet quos asperiores itaque accusamus fugiat quia hic ab natus at! Ea, a nulla.</p>
+            <p>
+                Chers festivaliers, Pour que vous puissiez profiter pleinement
+                du festival tout en ayant un endroit confortable et abordable où
+                dormir, voici quelques hébergements situés à proximité de
+                Giromagny. Si vous recherchez un logement convivial et
+                accessible, le Gîte Quiétude, situé à Giromagny, propose un
+                espace agréable pouvant accueillir jusqu’à six personnes, idéal
+                pour les groupes d’amis. Dans le même esprit, l’Appartement 44
+                Grande Rue offre un cadre moderne et entièrement équipé, parfait
+                pour deux à quatre personnes. Pour ceux qui préfèrent un cadre
+                plus naturel, Ô Village met à disposition des chalets
+                confortables, parfaits pour les familles ou les groupes
+                souhaitant un séjour au calme. Si vous recherchez plutôt un
+                hôtel, Le Paradis des Loups, également situé à Giromagny,
+                propose des chambres doubles avec un excellent confort. Enfin,
+                pour les budgets plus serrés, le Gîte Les Noisetiers à Vescemont
+                offre une alternative économique avec un cadre chaleureux, et
+                une maison de vacances à Rougegoutte propose un hébergement
+                spacieux avec jardin et parking, idéal pour ceux qui viennent en
+                voiture. Nous vous conseillons de réserver au plus vite pour
+                garantir votre hébergement et profiter des meilleurs tarifs.
+                Nous avons hâte de vous retrouver pour un festival inoubliable !
+            </p>
         </div>
         <div class="flex flex-col gap-5 justify-center items-center">
             <h2>Transport</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste non atque molestias, architecto deleniti accusantium qui perferendis voluptatibus pariatur temporibus amet sed consequatur accusamus numquam inventore unde provident cumque. Optio?</p>
+            <p>
+                Pour vous permettre de vous rendre facilement au festival et de
+                circuler dans les environs de Giromagny, voici quelques
+                solutions de transport en bus. La ligne 20 du réseau Optymo
+                relie Giromagny à Valdoie, avec des arrêts réguliers et un
+                passage environ toutes les heures. Ce trajet dure environ 24
+                minutes et constitue une solution simple pour rejoindre les
+                points clés de la région. Si vous venez de Belfort, la ligne 90
+                propose des trajets directs les dimanches et jours fériés, avec
+                des départs depuis Giromagny 1re DFL à 8h59 et 13h07, et des
+                retours depuis Belfort Gare à 12h12 et 18h04. Ce trajet prend
+                environ 40 minutes. Nous vous conseillons de consulter les
+                horaires sur le site d’Optymo avant votre départ, car ceux-ci
+                peuvent varier. Pensez également à acheter vos billets à
+                l’avance, car ils ne sont pas vendus à bord des bus. Nous vous
+                souhaitons un excellent voyage et avons hâte de vous retrouver
+                au festival !
+            </p>
         </div>
         <div class="flex flex-col gap-5 justify-center items-center">
             <h2>Lieux</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quasi corporis quo. Voluptatibus et dolorum natus consectetur, veniam quos. Veniam, ea asperiores nam commodi eaque accusamus eveniet magnam minima quos!</p>
-            <div class="grid grid-cols-2 lg:grid-cols-none lg:flex gap-5 px-5 mb-16 lg:col-start-1 lg:col-end-3 lg:order-10 w-full">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+                quasi corporis quo. Voluptatibus et dolorum natus consectetur,
+                veniam quos. Veniam, ea asperiores nam commodi eaque accusamus
+                eveniet magnam minima quos!
+            </p>
+            <div
+                class="grid grid-cols-2 lg:grid-cols-none lg:flex gap-5 px-5 mb-16 lg:col-start-1 lg:col-end-3 lg:order-10 w-full"
+            >
                 {lieux.map((lieu) => <CardLieux {...lieu} />)}
             </div>
         </div>
-        <div class="flex flex-col items-center gap-8 lg:col-start-1 lg:col-end-3">
+        <div
+            class="flex flex-col items-center gap-8 lg:col-start-1 lg:col-end-3"
+        >
             <h2>FAQ</h2>
             <div class="flex flex-col">
                 <p class="text-xl font-bold">

@@ -64,7 +64,7 @@ export async function getFilmsByDate(jours) {
     })
     return records;
 }
-
+        
 
 export async function getFilmsByInviteId(id) {
     let record = await pb.collection('Films').getFullList({filter: `invite="${id}"`});
