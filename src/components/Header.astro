@@ -1,10 +1,18 @@
 ---
+import { undefined } from "astro:schema";
 import Logo from "../assets/svg/logo.svg";
 import OpenMenu from "../assets/svg/Open_menu.svg";
 
 import Nav from "../components/Nav.astro";
 
 const { Hero } = Astro.props;
+console.log(Hero);
+
+if (Hero == undefined) {
+    var heroTitle = "Cinémagny";
+} else {
+    var heroTitle = ""
+}
 ---
 
 <header x-data="{ open: false}" class="flex flex-col items-center w-full gap-9 lg:gap-28 bg-green-dark bg-[url(../assets/img/fond_landing_page.avif)] bg-blend-multiply bg-cover pb-28">
@@ -17,6 +25,5 @@ const { Hero } = Astro.props;
             <OpenMenu />
         </button>
     </div>
-    <h1 class="text-white">{Hero}</h1>
-
+    <h1 class="text-white">{Hero} {heroTitle}</h1>
 </header>

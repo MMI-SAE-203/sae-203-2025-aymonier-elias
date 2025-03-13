@@ -12,10 +12,10 @@ const { Titre } = Astro.props;
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{Titre}</title>
+	<title>Cinémagny | {Titre}</title>
 </head>
 <body class="bg-white">
-	<Header Hero={Titre} />
+	<Header Hero={Titre}/>
 	<slot />
 	<Footer />
 </body>
