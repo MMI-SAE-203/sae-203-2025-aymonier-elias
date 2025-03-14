@@ -1,5 +1,5 @@
 import PocketBase from 'pocketbase';
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase('https://cinemagny.elias-aymonier.fr:443');
 
 export async function getInvite() {
     let records = await pb.collection('Invite').getFullList();
